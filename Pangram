@@ -1,0 +1,18 @@
+public class PangramChecker {
+    public static boolean isPangram(String input) {
+        boolean[] seenAlphabets = new boolean[26];
+
+        for (char character : input.toCharArray()) {
+            if (Character.isLetter(character)) {
+                int index = Character.toLowerCase(character) - 'a';
+                seenAlphabets[index] = true;
+            }
+        }
+        for (boolean seenAlphabet : seenAlphabets) {
+            if (!seenAlphabet) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
